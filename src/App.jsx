@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+// src/App.js
+import React, { useState } from "react";
 import QRCode from "qrcode.react";
-import AdSense from "react-adsense"; // Import AdSense
+import AdComponent from "./AdComponent"; // Import the AdComponent
 
 function App() {
   const [location, setLocation] = useState("");
@@ -28,7 +29,9 @@ function App() {
     const canvas = document.getElementById("qrCodeEl");
     const link = document.createElement("a");
     link.download = "qr-code.png";
-    link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    link.href = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
     link.click();
   };
 
@@ -43,16 +46,15 @@ function App() {
     );
   };
 
-  useEffect(() => {
-    // Initialize ads
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  }, []);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <h1 className="text-4xl font-bold text-gray-800 mb-10 text-center">
         Google Maps QR Code Generator
       </h1>
+
+      {/* Place ads above the main card */}
+      <AdComponent adSlot="YOUR_AD_SLOT_ID_1" />
+
       <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg flex flex-col">
         <input
           type="text"
@@ -104,31 +106,26 @@ function App() {
         </div>
       </div>
 
-      {/* Google Ads Section */}
-      <div className="w-full max-w-lg mt-8 flex justify-center">
-        <AdSense.Google
-          client="ca-pub-XXXXXXXXXXXXXX" // Replace with your AdSense client ID
-          slot="YYYYYYYYYY" // Replace with your AdSense slot ID
-          style={{ display: "block" }}
-          format="auto"
-          responsive="true"
-        />
-      </div>
+      {/* Place ads below the main card */}
+      <AdComponent adSlot="YOUR_AD_SLOT_ID_2" />
 
       {/* Summary Section */}
       <div className="w-full max-w-lg bg-gray-50 p-6 rounded-xl shadow-md mt-10 text-gray-800">
         <h2 className="text-2xl font-bold mb-4">How This Tool Works</h2>
         <p className="mb-4">
-          This Google Maps QR Code Generator allows you to create QR codes from Google Maps URLs or coordinates.
-          Simply enter a valid Google Maps URL or coordinates in the input box, and click "Generate QR Code" to
-          create a QR code that links to the specified location.
+          This Google Maps QR Code Generator allows you to create QR codes
+          from Google Maps URLs or coordinates. Simply enter a valid Google
+          Maps URL or coordinates in the input box, and click "Generate QR
+          Code" to create a QR code that links to the specified location.
         </p>
         <h2 className="text-2xl font-bold mb-4">Using the PNG File</h2>
         <p>
-          Once the QR code is generated, you can download it as a PNG file by clicking the "Download PNG" button.
-          You can then use the PNG file in various editing software such as Adobe Photoshop, Illustrator, or any
-          other graphics editor. The PNG format is widely supported and maintains high image quality, making it
-          ideal for both digital and print uses.
+          Once the QR code is generated, you can download it as a PNG file
+          by clicking the "Download PNG" button. You can then use the PNG
+          file in various editing software such as Adobe Photoshop,
+          Illustrator, or any other graphics editor. The PNG format is
+          widely supported and maintains high image quality, making it ideal
+          for both digital and print uses.
         </p>
       </div>
 
