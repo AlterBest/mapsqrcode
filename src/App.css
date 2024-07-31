@@ -1,0 +1,93 @@
+/* App.css */
+
+body {
+  background: #2e2e2e; /* Dark background for a luxurious feel */
+  color: #e0e0e0; /* Light text color */
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f4c542; /* Gold color for a luxurious feel */
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add some shadow for depth */
+}
+
+.form-container {
+  background: #1c1c1c; /* Darker background for form */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Shadow for form container */
+  width: 100%;
+  max-width: 600px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #f4c542; /* Gold border */
+  border-radius: 8px;
+  background: #2e2e2e;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.generate-button,
+.reset-button {
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-button.active {
+  background-color: #1e88e5; /* Blue color */
+}
+
+.generate-button.inactive {
+  background-color: #bdbdbd; /* Gray color */
+  cursor: not-allowed;
+}
+
+.reset-button {
+  background-color: #d32f2f; /* Red color */
+}
+
+.qr-code-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  padding: 10px 20px;
+  background-color: #43a047; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
